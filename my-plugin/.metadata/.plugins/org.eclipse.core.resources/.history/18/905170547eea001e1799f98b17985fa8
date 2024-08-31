@@ -1,0 +1,26 @@
+import org.apache.maven.plugin.AbstractMojo;
+import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.Parameter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+@Mojo(name = "process-file", defaultPhase = "compile")
+public class MyMojo extends AbstractMojo {
+
+    @Parameter(property = "file", required = true)
+    private String fileName;
+
+    public void execute() {
+        try {
+            // Create a FileWriter
+            FileWriter writer = new FileWriter(fileName);
+            // Write some content to the file
+            writer.write("Hello, world!");
+            // Close the writer
+            writer.close();
+            getLog().info("Content written to file: " + fileName);
+        } catch (IOException e) {
+            getLog().error("Error writing to file: " + fileName, e);
+        }
+    }
+}

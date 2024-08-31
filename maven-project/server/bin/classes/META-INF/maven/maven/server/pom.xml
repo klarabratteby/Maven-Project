@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>server</artifactId>
+    <!--<packaging>ear</packaging>-->
+    <parent>
+        <groupId>maven</groupId>
+        <artifactId>maven-project</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    
+    <dependencies>
+		
+		<dependency>
+   			<groupId>maven</groupId>
+   			<artifactId>client</artifactId>
+   			<version>0.0.1-SNAPSHOT</version>
+  		</dependency>
+        <dependency>
+        	<groupId>org.apache.httpcomponents</groupId>
+        	<artifactId>httpclient</artifactId>
+        	<version>4.5.13</version>
+    	</dependency>
+
+    
+    	<!-- For logging -->
+    	<dependency>
+        	<groupId>org.apache.logging.log4j</groupId>
+        	<artifactId>log4j-api</artifactId>
+        	<version>2.14.1</version>
+    	</dependency>
+    	<dependency>
+        	<groupId>org.apache.logging.log4j</groupId>
+        	<artifactId>log4j-core</artifactId>
+        	<version>2.14.1</version>
+    	</dependency>
+
+    	<!-- For JUnit testing -->
+    	<dependency>
+        	<groupId>junit</groupId>
+        	<artifactId>junit</artifactId>
+        	<version>4.13.1</version>
+        	<scope>test</scope>
+    	</dependency>
+
+    	<!-- For Joda-Time -->
+    	<dependency>
+        	<groupId>joda-time</groupId>
+        	<artifactId>joda-time</artifactId>
+        	<version>2.10.11</version>
+    	</dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <!-- Create a binary-->
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <!-- Define the assembly format to create a binary -->
+                            <descriptorRefs>
+                                <descriptorRef>bin</descriptorRef>
+                            </descriptorRefs>
+                            <!-- Specify the format of the generated binary -->
+                            <formats>
+                                <format>tar.gz</format>
+                            </formats>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+       </plugins>
+    </build>
+</project>

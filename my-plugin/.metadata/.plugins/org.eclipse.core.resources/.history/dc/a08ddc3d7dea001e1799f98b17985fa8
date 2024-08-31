@@ -1,0 +1,29 @@
+<project 
+	xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.example</groupId>
+  <artifactId>my-plugin</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.example</groupId> 
+                <artifactId>my-plugin</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>process-file</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <file>/Users/klarabratteby/Desktop/Skola/TDDE51/Lab2/my-plugin/my-plugin/src/main/java</file> 
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
